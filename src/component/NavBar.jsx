@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react' // no need in jsx
 import PropTypes from 'prop-types'
 import navbar from './navbar.css'
 import {

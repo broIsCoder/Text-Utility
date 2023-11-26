@@ -1,0 +1,61 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    min-height: 100vh;
+}
+form{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+}
+.textArea{
+    width: 100%;
+    border: 2px solid black;
+    height: 40vh;
+    padding: 10px;
+}
+.btnContainer{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.copyBtn{
+    position: absolute;
+    top: 32vh;
+    cursor: pointer;
+}
+.copyBtn:hover{
+    opacity: 0.6;
+}
+.copyInput{
+    left: 20px;
+}
+.copyOutput{
+    right: 20px;
+}
+.clearText{
+    left: 140px;
+}
+.featureBtn{
+    width:120px ;
+}
+
+@media screen and (max-width:700px) {
+    form{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .copyBtn{
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .textArea{
+        height: 130px;
+    }
+}

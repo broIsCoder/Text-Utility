@@ -1,0 +1,4 @@
+.accordion{
+    min-height: 100vh;
+    backdrop-filter:blur(10px) ;
+}

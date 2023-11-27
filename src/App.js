@@ -3,8 +3,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Switch,
-  NavLink,
   Link
 } from 'react-router-dom'
 import logo from './logo.svg';

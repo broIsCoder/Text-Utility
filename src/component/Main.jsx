@@ -58,13 +58,15 @@ export const Main = (props) => {
     props.renderAlert("success","Text has been formatted correctly (limited).")
   }
   function reverse() {
-    let newText = ' ';
-    for (let index = textInput.length; index >= 0; index--) {
-      const element = textInput.charAt(index);
-      newText += element;
-    }
-    setTextOutput(newText)
-    props.renderAlert("success","Text has been reversed")
+    if(textInput !== ''){
+      let newText = ' ';
+      for (let index = textInput.length; index >= 0; index--) {
+        const element = textInput.charAt(index);
+        newText += element;
+      }
+      setTextOutput(newText)
+      props.renderAlert("success","Text has been reversed")
+    }else{};
   }
   function toggleCase() {
     let paragraph = textInput.replace(/\s+/g, ' ').trim();    //remove extra spaces
@@ -126,14 +128,13 @@ export const Main = (props) => {
   return (
     <div className='box' style={props.theme2}>
       <h1>{props.heading}</h1>
-      <form>
+      <div className='div'>
         <textarea id="input" className='textArea' rows={10} aria-label="With textarea" value={textInput} placeholder='Input here' onChange={renderInput} style={props.theme}></textarea>
         <button className="copyBtn copyInput btn btn-primary" onClick={copyInput}>{copyIn}</button>
         <button className="btn btn-danger copyBtn clearText" onClick={() => { clearText() }}>Clear Text</button>
         <textarea id="output" className='textArea' rows={10} aria-label="With textarea" value={textOutput} placeholder='Output here' readOnly  style={props.theme}></textarea>
         <button className="copyBtn copyOutput btn btn-primary" onClick={copyOutput}>{copyOut}</button>
-
-      </form>
+      </div>
       
       <div className="btnContainer">
         <button className="btn btn-secondary featureBtn" onClick={() => { upperCase() }}>

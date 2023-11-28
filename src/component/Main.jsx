@@ -125,46 +125,42 @@ export const Main = (props) => {
     }, 1000);
   }
 
+  const millisecondsPerWord = 250;
+  const words = textInput.split(/\s+/).filter(word => word.length > 0).length;
+  const totalMilliseconds = millisecondsPerWord * words;
+  
+  const milliSeconds = Math.floor((totalMilliseconds % 1000));  // max 1000
+  const seconds = Math.floor((totalMilliseconds / (1000))%60);    // max 60
+  const minutes = Math.floor(totalMilliseconds /(1000 * 60 )) % 60;   // max 60
+  const hours = Math.floor(totalMilliseconds / (1000 * 60 * 60));    // max infinite
+
   return (
     <div className='box' style={props.theme2}>
-      <h1>{props.heading}</h1>
+      {textInput.length === 0 ?  <h1>{props.heading}</h1> : <div className='text-center p-1' style={props.theme}>
+        {/*will filter out " " since it is false  */}
+        <p className='p-0 m-0'><b>{textInput.split(/\s+/).filter((e)=>e!==" ").length}</b> words | <b>{textInput.length}</b> characters</p>
+           <p className='p-0 m-0'>
+      {hours > 0 && <span>{hours} Hr : </span>}
+      {minutes > 0 && <span>{minutes} Min : </span>}
+      {seconds > 0 && <span>{seconds} Sec : </span>}
+      {milliSeconds} MiliSec Read
+    </p>   </div>}
       <div className='div'>
         <textarea id="input" className='textArea' rows={10} aria-label="With textarea" value={textInput} placeholder='Input here' onChange={renderInput} style={props.theme}></textarea>
-        <button className="copyBtn copyInput btn btn-primary" onClick={copyInput}>{copyIn}</button>
-        <button className="btn btn-danger copyBtn clearText" onClick={() => { clearText() }}>Clear Text</button>
+        <button disabled={textInput.length == 0} className="copyBtn copyInput btn btn-primary" onClick={copyInput}>{copyIn}</button>
+        <button disabled={textInput.length == 0} className="btn btn-danger copyBtn clearText" onClick={() => { clearText() }}>Clear Text</button>
         <textarea id="output" className='textArea' rows={10} aria-label="With textarea" value={textOutput} placeholder='Output here' readOnly  style={props.theme}></textarea>
-        <button className="copyBtn copyOutput btn btn-primary" onClick={copyOutput}>{copyOut}</button>
+        <button disabled={textOutput.length == 0} className="copyBtn copyOutput btn btn-primary" onClick={copyOutput}>{copyOut}</button>
       </div>
       
       <div className="btnContainer">
-        <button className="btn btn-secondary featureBtn" onClick={() => { upperCase() }}>
-          UPPER CASE
-        </button>
-        <button className="btn btn-secondary featureBtn" onClick={() => { lowerCase() }}>
-          lower case
-        </button>
-        <button className="btn btn-secondary featureBtn" onClick={() => { correct() }}>
-         Correct
-        </button>
-        <button className="btn btn-secondary featureBtn" onClick={() => { speak() }}>
-          Speak
-        </button>
-        <button className="btn btn-secondary featureBtn" onClick={() => { reverse() }}>
-          Reverse
-        </button>
-        <button className="btn btn-secondary featureBtn" onClick={() => { toggleCase() }}>
-          Toggle Case
-        </button>
-        <button className="btn btn-secondary featureBtn" onClick={() => { capitalize() }}>
-          Capitalize
-        </button>
-      </div>
-
-      <div>
-        <h1>Your text Summary</h1>
-        {/*will filter out " " since it is false  */}
-        <p><b>{textInput.split(/\s+/).filter(Boolean).length}</b> words | <b>{textInput.length}</b> characters</p>
-        <p>{0.008 * textInput.length >= 0 ? 0 : 0.008 * textInput.length} Min : {0.008 * 60 * textInput.length} Sec read</p>
+        <button disabled={textInput.length == 0} className="btn btn-dark featureBtn" onClick={() => { upperCase() }}>UPPER CASE</button>
+        <button disabled={textInput.length == 0} className="btn btn-dark featureBtn" onClick={() => { lowerCase() }}>lower case</button>
+        <button disabled={textInput.length == 0} className="btn btn-dark featureBtn" onClick={() => { correct() }}>Correct</button>
+        <button disabled={textInput.length == 0} className="btn btn-dark featureBtn" onClick={() => { speak() }}>Speak</button>
+        <button disabled={textInput.length == 0} className="btn btn-dark featureBtn" onClick={() => { reverse() }}>Reverse</button>
+        <button disabled={textInput.length == 0} className="btn btn-dark featureBtn" onClick={() => { toggleCase() }}>Toggle Case</button>
+        <button disabled={textInput.length == 0} className="btn btn-dark featureBtn" onClick={() => { capitalize() }}>Capitalize</button>
       </div>
 
     </div>

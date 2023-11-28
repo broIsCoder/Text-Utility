@@ -15,11 +15,11 @@ import Alert from './component/Alert';
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [theme, setTheme] = useState({
-    backgroundColor: "#222222",
+    backgroundColor: "#111111",
     color: "grey"
   });
   const [theme2, setTheme2] = useState({
-    backgroundColor: "black",
+    background: "black",
     color: "grey"
   });
 
@@ -78,27 +78,25 @@ function App() {
   function toggleTheme() {
     if (!darkMode) {
       setTheme({
-        backgroundColor: "#222222",
+        backgroundColor: "#111111",
         color: "grey"
       });
       setTheme2({
-        backgroundColor: "black",
+        background:"black",
         color: "grey"
       });
-      document.title = "Text Utility - Dark Mode"
       setDarkMode(true);
       renderAlert("success", "Dark Mode have been enabled")
     }
     else {
       setTheme({
-        backgroundColor: " #c0c0c0",
+        background: " #c0c0c0",
         color: "black"
       });
       setTheme2({
-        backgroundColor: "white",
+        background: "linear-gradient(#f1d1d1 ,#88e3f1)",
         color: "black"
       });
-      document.title = "Text Utility - Lightllllllllllll Mode"
       setDarkMode(false);
       renderAlert("success", "Light Mode have been enabled")
     }
@@ -126,7 +124,7 @@ function App() {
           <>
             <NavBar title="TextUtility" version={10.1} theme={theme} toggleTheme={toggleTheme} themeAlt={themeAlt} toggleThemeAlt={toggleThemeAlt} />
             <Alert alert={alert} />
-            <Main renderAlert={renderAlert} heading="Enter your text to analyze" theme={theme} theme2={theme2} alert={renderAlert} />
+            <Main renderAlert={renderAlert} heading="Try text Utility " theme={theme} theme2={theme2} alert={renderAlert} />
           </>
         }></Route>
         <Route exact path='/about' element={

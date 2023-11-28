@@ -128,7 +128,6 @@ export const Main = (props) => {
   const millisecondsPerWord = 250;
   const words = textInput.split(/\s+/).filter(word => word.length > 0).length;
   const totalMilliseconds = millisecondsPerWord * words;
-
   const milliSeconds = Math.floor((totalMilliseconds % 1000));  // max 1000
   const seconds = Math.floor((totalMilliseconds / (1000)) % 60);    // max 60
   const minutes = Math.floor(totalMilliseconds / (1000 * 60)) % 60;   // max 60

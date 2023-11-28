@@ -1,12 +1,14 @@
 // import React, { useState } from 'react' // no need in jsx
 import PropTypes from 'prop-types'
 import navbar from './navbar.css'
+import { NavLink } from 'react-router-dom';
+
 import {
     BrowserRouter as Router,
     Routes,
     Route,
     Link
-  } from 'react-router-dom'
+} from 'react-router-dom'
 
 export const NavBar = (props) => {
     return (
@@ -30,15 +32,12 @@ export const NavBar = (props) => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/" style={props.theme} >
-                                Home
-                            </Link>
+                            <NavLink to="/" className="nav-link" activeClassName="active" style={props.theme}>Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/about" style={props.theme} >
-                                About
-                            </Link>
+                            <NavLink to="/about" className="nav-link" activeClassName="active" style={props.theme}>About</NavLink>
                         </li>
+                        <span className='underline'></span>
                     </ul>
 
                     <div className="themeBtnContainer">
@@ -48,7 +47,7 @@ export const NavBar = (props) => {
                             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Light Mode</label>
                         </div>
                         |
-                        <button className='themeBtn'style={props.themeAlt} onClick={props.toggleThemeAlt}>Random Theme</button>
+                        <button className='themeBtn' style={props.themeAlt} onClick={props.toggleThemeAlt}>Random Theme</button>
                     </div>
 
                 </div>

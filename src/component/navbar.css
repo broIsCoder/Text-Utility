@@ -11,3 +11,14 @@
     border: 3px solid black; 
     font-size: x-small;
 }
+/* Add this to your CSS styles */
+.navbar-nav {
+    position: relative;
+}
+.nav-link{
+    border-bottom: 4px solid transparent;
+}
+.active{
+    border-bottom: 4px solid #0e4daa;
+    transition: border 0.2s ease-in-out;
+}

@@ -137,9 +137,9 @@ export const Main = (props) => {
   return (
     <div className='box' style={props.theme2}>
       {textInput.length === 0 ?
-        <h1>{props.heading}</h1>
+        <h1 className='p-1'>{props.heading}</h1>
         :
-        <div className='text-center p-1' style={props.theme}>
+        <div className='text-center p-0' style={props.theme}>
           {/*will filter out " " since it is false  */}
           <p className='p-0 m-0'><b>{textInput.split(/\s+/).filter((e) => e !== " ").length}</b> words | <b>{textInput.length}</b> characters</p>
           <p className='p-0 m-0'>

@@ -11,14 +11,24 @@
     border: 3px solid black; 
     font-size: x-small;
 }
+.navbar{
+    min-height: 70px;
+}
 /* Add this to your CSS styles */
 .navbar-nav {
     position: relative;
 }
+.navbar-brand{
+     background-color: tan;
+     color: white;
+}
 .nav-link{
-    border-bottom: 4px solid transparent;
+    border: 4px solid transparent;
+    border-collapse: collapse;
+}
+.nav-link:hover{
+    border-top: 4px solid #474747;
 }
 .active{
     border-bottom: 4px solid #0e4daa;
-    transition: border 0.2s ease-in-out;
 }

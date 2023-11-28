@@ -79,11 +79,13 @@ function App() {
     if (!darkMode) {
       setTheme({
         backgroundColor: "#111111",
-        color: "grey"
+        color: "grey",
+        transition:"all 0.2s ease-in-out"
       });
       setTheme2({
         background:"black",
-        color: "grey"
+        color: "grey",
+        transition:"all 0.2s ease-in-out"
       });
       setDarkMode(true);
       renderAlert("success", "Dark Mode have been enabled")
@@ -91,11 +93,13 @@ function App() {
     else {
       setTheme({
         background: " #c0c0c0",
-        color: "black"
+        color: "black",
+        transition:"all 0.2s ease-in-out"
       });
       setTheme2({
         background: "linear-gradient(#f1d1d1 ,#88e3f1)",
-        color: "black"
+        color: "black",
+        transition:"all 0.2s ease-in-out"
       });
       setDarkMode(false);
       renderAlert("success", "Light Mode have been enabled")

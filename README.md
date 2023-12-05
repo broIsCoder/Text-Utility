@@ -1,1 +1,1 @@
-very basic text utility app with react and bootstrap (there are lot of limitation),           first release - 2023/11/26
+very basic text utility app with react and bootstrap           first release - 2023/11/26
